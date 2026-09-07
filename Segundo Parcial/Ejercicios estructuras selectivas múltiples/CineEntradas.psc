@@ -1,0 +1,32 @@
+Proceso CineEntradas
+    Definir personas Como Entero;
+    Definir dia, membresia Como Caracter;
+    Definir total, parejas, individuales Como Real;
+    
+    Escribir "Introduce el numero de personas: ";
+    Leer personas;
+    Escribir "Introduce el dia de la semana: ";
+    Leer dia;
+    Escribir "¿Cuentas con membresia? (si/no): ";
+    Leer membresia;
+    
+    total <- 0;
+    
+    Si dia = "miercoles" o dia = "miércoles" Entonces
+        total <- personas * 30;
+    Sino
+        Si dia = "jueves" Entonces
+            parejas <- trunc(personas / 2);
+            individuales <- personas MOD 2;
+            total <- (parejas * 75) + (individuales * 50);
+        Sino
+            total <- personas * 50;
+        FinSi
+    FinSi
+    
+    Si membresia = "si" o membresia = "s" Entonces
+        total <- total - (total * 0.10);
+    FinSi
+    
+    Escribir "Total a pagar: $", total;
+FinProceso
